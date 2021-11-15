@@ -1,7 +1,6 @@
 import React from "react";
-import "./main.css";
 import ReactLoading from "react-loading";
-
+import "./main.css";
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -19,13 +18,13 @@ class Main extends React.Component {
     this.setState({ loading: true });
     const data = new FormData();
     data.append("file", this.uploadInput.files[0]);
-    console.log(data);
-    fetch("http://localhost:5000/upload", {
+        fetch("http://127.0.0.1:5000/upload", {
       method: "POST",
       body: data,
     })
       .then((response) => response.blob())
       .then((images) => {
+        console.log(images);
         const image = URL.createObjectURL(images);
         this.setState({ imageURL: image });
         this.setState({ loading: false });
@@ -47,7 +46,9 @@ class Main extends React.Component {
           {this.state.loading ? (
             <ReactLoading color="#34abeb" type="balls" />
           ) : (
-            <img src={this.state.imageURL} alt="img" />
+            <div className="container">
+              <img src={this.state.imageURL} alt="img" />
+            </div>
           )}
         </div>
         <div className="input">

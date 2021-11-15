@@ -1,6 +1,10 @@
 .App {
+  width:400px;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin: 40px auto;
+  padding: 20px;
   box-sizing: border-box;
+  background-color:#f4f4f4;
+  border:1px solid #ccc;
+  border-radius:8px;
 }
